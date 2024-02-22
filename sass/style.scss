@@ -368,23 +368,36 @@ body {
   opacity: 0;
 }
 
-#js-mouse {
-  pointer-events: none;
+/* マウスストーカー */
+.g-ms {
   position: fixed;
-  top: -15px;
-  left: -15px;
-  width: 30px;
-  height: 30px;
-  background-color: rgba(0, 0, 102, 0.5);
-  border-radius: 50%;
-  transform: translate(0, 0) scale(1.1);
-  transition: all 0.3s ease-out;
+  top: 0;
+  left: 0;
   z-index: 9999;
+  transform: translate3d(50vw, 50vh, 0);
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+}
+.g-ms_i {
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.05);
   opacity: 0;
 }
 
-#js-mouse.js-hover {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 191, 0, 0.5);
+/* アクティブ時 */
+.g-ms.g-ms-active .g-ms_i {
+  opacity: 1;
+}
+
+/* マウスホバー時 */
+.g-ms.g-ms-hover {
+  mix-blend-mode: difference;
+}
+.g-ms.g-ms-hover .g-ms_i {
+  background: #fff;
+  transform: scale(0.2);
 }
