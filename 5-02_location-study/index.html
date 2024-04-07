@@ -1,10 +1,10 @@
 <!doctype html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>3-06_while</title>
+    <title>5-02_location</title>
     <link href="../../_common/images/favicon.ico" rel="shortcut icon">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
     <link href="../../_common/css/style.css" rel="stylesheet">
@@ -13,14 +13,21 @@
 <body>
     <header>
         <div class="container">
-            <h1>1枚、2枚、3枚…と出力する</h1>
-            <h2>繰り返しを試してみよう</h2>
+            <h1>プルダウンメニューで指定ページへ</h1>
+            <h2>選んだタイミングでページを移動する</h2>
         </div><!-- /.container -->
     </header>
     <main>
         <div class="container">
             <section>
-                <p>コンソールを開きます。</p>
+                <form id="form">
+                    <select name="select">
+                        <option value="index.html">日本語</option>
+                        <option value="index-en.html">English</option>
+                        <option value="index-zh.html">中文</option>
+                    </select>
+                </form>
+                <h2>日本語のページ</h2>
             </section>
         </div><!-- /.container -->
     </main>
@@ -29,15 +36,7 @@
             <p>JavaScript Samples</p>
         </div><!-- /.container -->
     </footer>
-    <script>
-        'use strict';
-
-        let i = 1;
-        while (i <= 10) {
-            console.log(i);
-            i = i + 1;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

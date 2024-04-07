@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>3-06_while</title>
-    <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+    <title>4-01_input</title>
+    <link rel="shortcut icon" href="../../_common/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
     <link href="../../_common/css/style.css" rel="stylesheet">
 </head>
@@ -13,14 +13,18 @@
 <body>
     <header>
         <div class="container">
-            <h1>1枚、2枚、3枚…と出力する</h1>
-            <h2>繰り返しを試してみよう</h2>
+            <h1>フォームの入力内容を取得する</h1>
+            <h2>まずはイベントをテスト</h2>
         </div><!-- /.container -->
     </header>
     <main>
         <div class="container">
             <section>
-                <p>コンソールを開きます。</p>
+                <form action="#" id="form">
+                    <input type="text" name="word">
+                    <input type="submit" value="検索">
+                </form>
+                <p id="output"></p>
             </section>
         </div><!-- /.container -->
     </main>
@@ -32,11 +36,11 @@
     <script>
         'use strict';
 
-        let i = 1;
-        while (i <= 10) {
-            console.log(i);
-            i = i + 1;
-        }
+        document.getElementById('form').onsubmit = function (event) {
+            event.preventDefault();
+            const search = document.getElementById('form').word.value;
+            document.getElementById('output').textContent = `「${search}」の検索中...`;
+        };
     </script>
 </body>
 
