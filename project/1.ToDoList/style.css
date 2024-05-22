@@ -82,6 +82,7 @@ a {
 }
 #toDo .title {
   padding-bottom: 1rem;
+  font-size: 30px;
 }
 #toDo button {
   border: 1px solid #000;
