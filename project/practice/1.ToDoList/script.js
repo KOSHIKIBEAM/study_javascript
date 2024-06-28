@@ -2,13 +2,19 @@ const taskValue = document.getElementsByClassName("task_value")[0];
 const taskSubmit = document.getElementsByClassName("task_submit")[0];
 const taskList = document.getElementsByTagName("ul")[0];
 
+if (taskValue.value == "") {
+  taskSubmit.disabled = true;
+}
+
+taskValue.addEventListener("input", (e) => {
+  taskSubmit.disabled = false;
+});
+
 const addTasks = (task) => {
-  // 入力したタスクを追加・表示
   const listItem = document.createElement("li");
   const showItem = taskList.appendChild(listItem);
   showItem.innerHTML = task;
 
-  // タスクに削除ボタンを付与
   const deleteBtn = document.createElement("button");
   deleteBtn.innerHTML = "Delete";
   listItem.appendChild(deleteBtn);
@@ -23,14 +29,6 @@ const deleteTasks = (deleteBtn) => {
   const chosenTask = deleteBtn.closest("li");
   taskList.removeChild(chosenTask);
 };
-
-if (taskValue.value == "") {
-  taskSubmit.disabled = true;
-}
-
-taskValue.addEventListener("input", (e) => {
-  taskSubmit.disabled = false;
-});
 
 taskSubmit.addEventListener("click", (e) => {
   e.preventDefault();
