@@ -14,10 +14,10 @@ class WordQuiz {
 
   async fetchQuizData() {
     try {
-      const response = await fetch('quiz.json');
+      const response = await fetch("quiz.json");
       this.quizData = await response.json();
     } catch (e) {
-      this.rootElm.innerText = '問題の読み込みに失敗しました';
+      this.rootElm.innerText = "問題の読み込みに失敗しました";
       console.log(e);
     }
   }
@@ -39,13 +39,16 @@ class WordQuiz {
   }
 
   addResult() {
-    const checkedElm = this.rootElm.querySelector('input[name="choice"]:checked');
-    const answer = checkedElm ? checkedElm.value : '';
-    const currentQuestion = this.quizData[this.gameStatus.level][`step${this.gameStatus.step}`];
+    const checkedElm = this.rootElm.querySelector(
+      'input[name="choice"]:checked'
+    );
+    const answer = checkedElm ? checkedElm.value : "";
+    const currentQuestion =
+      this.quizData[this.gameStatus.level][`step${this.gameStatus.step}`];
 
     this.gameStatus.results.push({
       question: currentQuestion,
-      selectedAnswer: answer
+      selectedAnswer: answer,
     });
 
     console.log(`解答結果: ${answer}`);
@@ -79,25 +82,27 @@ class WordQuiz {
 
     const optionStrs = [];
     for (let i = 0; i < levelStrs.length; i++) {
-      optionStrs.push(`<option value="${levelStrs[i]}" name="level">レベル${i + 1}</option>`);
+      optionStrs.push(
+        `<option value="${levelStrs[i]}" name="level">レベル${i + 1}</option>`
+      );
     }
 
     const html = `
       <select class="levelSelector">
-        ${optionStrs.join('')}
+        ${optionStrs.join("")}
       </select>
       <button class="startBtn">スタート</button>
     `;
-    const parentElm = document.createElement('div');
+    const parentElm = document.createElement("div");
     parentElm.innerHTML = html;
 
-    const selectorElm = parentElm.querySelector('.levelSelector');
-    selectorElm.addEventListener('change', (event) => {
+    const selectorElm = parentElm.querySelector(".levelSelector");
+    selectorElm.addEventListener("change", (event) => {
       this.gameStatus.level = event.target.value;
     });
 
-    const startBtnElm = parentElm.querySelector('.startBtn');
-    startBtnElm.addEventListener('click', () => {
+    const startBtnElm = parentElm.querySelector(".startBtn");
+    startBtnElm.addEventListener("click", () => {
       this.displayQuestionView();
     });
 
@@ -120,19 +125,19 @@ class WordQuiz {
     const html = ` 
       <p>${currentQuestion.word}</p>
       <div>
-        ${choiceStrs.join('')}
+        ${choiceStrs.join("")}
       </div>
       <div class="actions">
         <button class="nextBtn">解答する</button>
       </div>
     `;
 
-    const parentElm = document.createElement('div');
-    parentElm.className = 'question';
+    const parentElm = document.createElement("div");
+    parentElm.className = "question";
     parentElm.innerHTML = html;
 
-    const nextBtnElm = parentElm.querySelector('.nextBtn');
-    nextBtnElm.addEventListener('click', () => {
+    const nextBtnElm = parentElm.querySelector(".nextBtn");
+    nextBtnElm.addEventListener("click", () => {
       this.nextStep();
     });
 
@@ -148,12 +153,12 @@ class WordQuiz {
       <button class="resetBtn">開始画面に戻る</button>
     `;
 
-    const parentElm = document.createElement('div');
-    parentElm.className = 'results';
+    const parentElm = document.createElement("div");
+    parentElm.className = "results";
     parentElm.innerHTML = html;
 
-    const resetBtnElm = parentElm.querySelector('.resetBtn');
-    resetBtnElm.addEventListener('click', () => {
+    const resetBtnElm = parentElm.querySelector(".resetBtn");
+    resetBtnElm.addEventListener("click", () => {
       this.resetGame();
       this.displayStartView();
     });
@@ -162,9 +167,9 @@ class WordQuiz {
   }
 
   replaceView(elm) {
-    this.rootElm.innerHTML = '';
+    this.rootElm.innerHTML = "";
     this.rootElm.appendChild(elm);
   }
 }
 
-new WordQuiz(document.getElementById('app')).init();
+new WordQuiz(document.getElementById("app")).init();

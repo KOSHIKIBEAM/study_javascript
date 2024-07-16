@@ -2,9 +2,8 @@ class WordQuiz {
   constructor(rootElm) {
     this.rootElm = rootElm;
 
-    // ゲームのステータス
     this.gameStatus = {
-      level: null, // 選択されたレベル
+      level: null,
     };
   }
 
@@ -18,7 +17,7 @@ class WordQuiz {
       const response = await fetch("quiz.json");
       this.quizData = await response.json();
     } catch (e) {
-      this.rootElm.innerText = "問題の読み込みに失敗しました";
+      this.rootElm.innerText = "問題の読み込みに失敗しました。";
       console.log(e);
     }
   }
@@ -35,16 +34,16 @@ class WordQuiz {
     }
 
     const html = `
-      <select class="levelSelector">
-        ${optionStrs.join("")}
-      </select>
-      <button class="startBtn">スタート</button>
+    <select class="levelSelector">
+    ${optionStrs.join("")}
+    </select>
+    <button class="startBtn">スタート</button>
     `;
     const parentElm = document.createElement("div");
     parentElm.innerHTML = html;
 
-    const selectorElm = parentElm.querySelector(".levelSelector");
-    selectorElm.addEventListener("change", (event) => {
+    const selectElm = parentElm.querySelector(".levelSelector");
+    selectElm.addEventListener("change", (event) => {
       this.gameStatus.level = event.target.value;
     });
 
@@ -58,51 +57,36 @@ class WordQuiz {
 
   displayQuestionView() {
     console.log(`選択中のレベル:${this.gameStatus.level}`);
-    const stepKey = "step1";
-    const currentQuestion = this.quizData[this.gameStatus.level][stepKey]; // --- [1]
 
-    const choiceStrs = []; // --- [2〜]
-    for (const choice of currentQuestion.choices) {
-      choiceStrs.push(`<label>
-                          <input type="radio" name="choice" value="${choice}" />
-                          ${choice}
-                        </label>`);
-    } // --- [〜2]
-
-    const html = ` 
-      <p>${currentQuestion.word}</p>
-      <div>
-        ${choiceStrs.join("")} // --- [3]
-      </div>
-      <div class="actions">
-        <button class="nextBtn">解答する</button>
-      </div>
+    const html = `
+    <p>ゲームを開始しました。</p>
+    <button class="retireBtn">ゲームを終了する</button>
     `;
 
     const parentElm = document.createElement("div");
     parentElm.className = "question";
     parentElm.innerHTML = html;
 
-    // const retireBtnElm = parentElm.querySelector('.retireBtn'); // [4〜] 削除
-    // retireBtnElm.addEventListener('click', () => {
-    //   this.displayResultView();
-    // }); // --- [〜4] 削除
+    const retireBtnElm = parentElm.querySelector(".retireBtn");
+    retireBtnElm.addEventListener("click", () => {
+      this.displayResultView();
+    });
 
     this.replaceView(parentElm);
   }
 
   displayResultView() {
     const html = `
-      <h2>ゲーム終了</h2>
-      <button class="resetBtn">開始画面に戻る</button>
+    <h2>ゲーム終了</h2>
+    <button class="resetBtn">開始画面に戻る</button>
     `;
 
     const parentElm = document.createElement("div");
     parentElm.className = "results";
     parentElm.innerHTML = html;
 
-    const resetBtnElm = parentElm.querySelector(".resetBtn");
-    resetBtnElm.addEventListener("click", () => {
+    const resetBtn = parentElm.querySelector(".resetBtn");
+    resetBtn.addEventListener("click", () => {
       this.displayStartView();
     });
 

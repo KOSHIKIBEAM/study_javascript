@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>16.Tab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">My Logo</a>
+        <div class="menuToggle"></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">DropDown<b>▼</b></a>
+                    <ul>
+                        <li><a href="#">Product 01</a></li>
+                        <li><a href="#">Product 02</a></li>
+                        <li><a href="#">Product 03<b>＋</b></a>
+                            <ul>
+                                <li><a href="#">Submenu01</a></li>
+                                <li><a href="#">Submenu02</a></li>
+                                <li><a href="#">Submenu03</a></li>
+                                <li><a href="#">Submenu04</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog<b>▼</b></a>
+                    <ul>
+                        <li><a href="#">Product 01</a></li>
+                        <li><a href="#">Product 02</a></li>
+                        <li><a href="#">Product 03</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="tab">
+        <ul class="tab__menu">
+            <li class="tab__menu-item is-active" data-tab="01">menu1</li>
+            <li class="tab__menu-item" data-tab="02">menu2</li>
+            <li class="tab__menu-item" data-tab="03">menu3</li>
+        </ul>
+        <div class="tab__panel">
+            <div class="tab__panel-box tab__panel-box001 is-show" data-panel="01">
+                <p class="tab__panel-text">
+                    初期表示のタブです。初期表示のタブです。初期表示のタブです。初期表示のタブです。初期表示のタブです。初期表示のタブです。初期表示のタブです。初期表示のタブです。
+                </p>
+            </div>
+            <div class="tab__panel-box tab__panel-box002" data-panel="02">
+                <p class="tab__panel-text">
+                    2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。2枚目のタブです。</p>
+            </div>
+            <div class="tab__panel-box tab__panel-box003" data-panel="03">
+                <p class="tab__panel-text">
+                    3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。3枚目のタブです。</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

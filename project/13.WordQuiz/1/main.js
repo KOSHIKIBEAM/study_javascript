@@ -1,6 +1,7 @@
-class WordQuiz { // --- [1~]
+class WordQuiz {
+  // --- [1~]
   constructor() {
-    console.log('インスタンスが作成されたよ');
+    console.log("インスタンスが作成されたよ");
   }
 } // --- [~1]
 
