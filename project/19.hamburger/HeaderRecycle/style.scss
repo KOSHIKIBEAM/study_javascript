@@ -156,6 +156,7 @@ header {
     & > ul > li > ul {
       position: relative;
       display: block;
+      top: 5px;
       left: 10px;
     }
 
@@ -172,5 +173,17 @@ header {
     a:hover {
       background: cadetblue;
     }
+  }
+
+  header ul li ul {
+    position: relative;
+    display: block;
+  }
+  header ul li ul li ul {
+    left: 20px;
+    top: 5px;
+  }
+  header ul li ul li {
+    border: none;
   }
 }

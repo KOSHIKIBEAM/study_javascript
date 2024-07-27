@@ -164,6 +164,7 @@ header .menuToggle {
   header .container.active > ul > li > ul {
     position: relative;
     display: block;
+    top: 5px;
     left: 10px;
   }
   header .container.active > ul > li > ul > li {
@@ -177,5 +178,16 @@ header .menuToggle {
   }
   header .container.active a:hover {
     background: cadetblue;
+  }
+  header ul li ul {
+    position: relative;
+    display: block;
+  }
+  header ul li ul li ul {
+    left: 20px;
+    top: 5px;
+  }
+  header ul li ul li {
+    border: none;
   }
 }
