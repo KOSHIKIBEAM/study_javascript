@@ -1,11 +1,11 @@
 // スライダー全体を囲むエリア
-const slider = document.querySelector(".slider-slides-group");
+const slider = document.querySelector(".slides-wrap");
 // スライダーの各スライド
 const slides = document.querySelectorAll(".slider-slide");
 // スライドを左へ戻すカーソルボタン
-const prevBtn = document.querySelector(".slider-cursor-left");
+const prevBtn = document.querySelector(".prev");
 // スライドを右へ進めるカーソルボタン
-const nextBtn = document.querySelector(".slider-cursor-right");
+const nextBtn = document.querySelector(".next");
 // 現在何番目のスライドが表示されているかを表示するインジケーター
 const indicators = document.querySelector(".slider-indicators");
 // 全体のスライド数
