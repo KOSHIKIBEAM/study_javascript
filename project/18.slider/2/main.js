@@ -1,3 +1,11 @@
+const Images = [
+  "https://flatpaq.net/samples/vanilla-javascript-slider/img/slide1.jpg",
+  "https://flatpaq.net/samples/vanilla-javascript-slider/img/slide2.jpg",
+  "https://flatpaq.net/samples/vanilla-javascript-slider/img/slide3.jpg",
+  "https://flatpaq.net/samples/vanilla-javascript-slider/img/slide4.jpg",
+  "https://flatpaq.net/samples/vanilla-javascript-slider/img/slide5.jpg",
+];
+
 // スライダー全体を囲むエリア
 const slider = document.querySelector(".slides-wrap");
 // スライダーの各スライド
@@ -19,7 +27,7 @@ for (let i = 0; i < slideLength; i++) {
   let indicator = document.createElement("li");
   indicator.className = "slider-indicator";
   indicators.appendChild(indicator);
-  slides[i].style.left = i * 100 + "%";
+  slides[i].style.left = i * 255.33 + "px";
 }
 
 // currentSlideCountの値に応じて、スライドとインジケーターにCSSクラスをつける
@@ -51,7 +59,7 @@ function initialize() {
 // 該当するインジケーターにCSSクラスを加えて、スライドの表示位置を変更する関数
 function update() {
   indicatorList[currentSlideCount].classList.add("active-indicator");
-  slider.style.left = -currentSlideCount * 100 + "%";
+  slider.style.left = -currentSlideCount * 255.33 + "px";
 }
 
 // スライドを1枚戻す関数
@@ -79,7 +87,7 @@ function nextSlider() {
 }
 
 // 3秒ごとにスライドを進める
-setInterval(nextSlider, 3000);
+// setInterval(nextSlider, 3000);
 
 // -------------
 // スワイプ機能

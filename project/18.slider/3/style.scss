@@ -1,0 +1,97 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+li,
+dt,
+dd,
+p,
+div,
+span,
+img,
+a,
+table,
+tr,
+th,
+td,
+small,
+button,
+time,
+figure {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li,
+dd {
+  list-style-type: none;
+}
+
+header,
+footer,
+nav,
+section,
+article,
+main,
+aside,
+figure,
+figcaption {
+  display: block;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.swiper {
+  width: 100%;
+  min-height: 300px;
+}
+.swiper-wrapper {
+  width: 100%;
+
+  right: 10%;
+}
+.swiper-slide {
+  transform-origin: top center;
+  transition: all 0.7s;
+  transform: scale(0.8) !important;
+
+  img {
+    width: 100%;
+  }
+}
+.swiper-slide-active {
+  transform: scale(1) !important;
+}

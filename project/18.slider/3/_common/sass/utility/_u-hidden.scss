@@ -1,0 +1,35 @@
+@use "../global" as global;
+
+// ---
+// 非表示
+// ---
+.u-hidden-pc {
+  // PC時に非表示
+
+  @include global.mq("pc") {
+    display: none;
+  }
+}
+
+.u-hidden-tab {
+  // スマホ時に非表示
+
+  @include global.mq("sp") {
+    display: none;
+  }
+}
+
+.u-hidden-sp {
+  // スマホ時に非表示
+
+  @include global.mq("sp") {
+    display: none;
+  }
+}
+.u-hidden-950 {
+  // 950px以下に非表示
+
+  @media screen and (min-width: 950px) {
+    display: none;
+  }
+}

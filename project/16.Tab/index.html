@@ -66,6 +66,140 @@
         </div>
     </div>
 
+    <style>
+        #campaign-box {
+            display: flex;
+            flex-flow: column;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #campaign-box {
+                padding: 0 15px;
+            }
+        }
+
+        #campaign-box .campaignbox-top {
+            background: #E25C34;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px 0;
+            border-radius: 12px 12px 0 0;
+            color: #fff;
+            border: 1px solid #E84A5B;
+        }
+
+        #campaign-box .campaignbox-bottom {
+            padding: 20px 0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            justify-content: center;
+            border: 1px solid #E84A5B;
+            color: #333;
+            font-size: 20px;
+            border-radius: 0 0 12px 12px;
+        }
+
+        #campaign-box .campaignbox-bottom p:nth-child(1) {
+            font-size: 20px;
+            padding-bottom: 5px;
+        }
+
+        #campaign-box .campaignbox-bottom p:nth-child(1) span {
+            color: #E84A5B;
+            font-size: 24px;
+        }
+
+        #campaign-box .campaignbox-bottom p:nth-child(2) {
+            font-size: 14px;
+        }
+    </style>
+    <div id="campaign-box">
+        <div class="campaignbox-top">
+            <p>
+                6月限定キャンペーン！
+            </p>
+        </div>
+        <div class="campaignbox-bottom">
+            <p>
+                初回限定<span>3,980</span>円
+            </p>
+            <p>
+                通常6,666円+初診料1,111円
+            </p>
+        </div>
+    </div>
+
+
+    <style>
+        #footer_fix_sp_pt2 {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #footer_fix_sp_pt2.footer_fix {
+                z-index: 100;
+                position: fixed;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                background: #fff;
+                width: 100%;
+                text-decoration: none;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner {
+                width: 100%;
+                background: #ff4c49;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner {
+                padding: 23px 0;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner img {
+                width: 30px;
+                margin-right: 4%;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner p {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            #footer_fix_sp_pt2 .footer_fix_inner {
+                padding: 12px 0;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner img {
+                width: 25px;
+                margin-right: 6%;
+            }
+
+            #footer_fix_sp_pt2 .footer_fix_inner p {
+                font-size: 13px;
+            }
+        }
+    </style>
+
+    <div class="footer_fix" id="footer_fix_sp_pt2">
+        <a href="https://www.e-hakama.com/reservation/" class="footer_fix_inner">
+            <img src="https://www.e-hakama.com/app/wp-content/uploads/2024/08/schedule.png" alt="">
+            <p>来店予約はこちら</p>
+        </a>
+    </div>
 
     <script src="./main.js"></script>
 </body>

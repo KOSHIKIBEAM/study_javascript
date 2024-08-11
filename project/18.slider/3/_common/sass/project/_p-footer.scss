@@ -1,0 +1,155 @@
+@use "../global" as global;
+
+.p-footer {
+  @include global.mq("sp") {
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  max-width: 1200px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.p-footer__top {
+  background: global.$accent-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 121px 89px 130px;
+
+  @include global.mq("sp") {
+    padding: 30px;
+    width: 100%;
+    flex-flow: column;
+  }
+
+  &-txt {
+    @include global.mq("sp") {
+      padding-bottom: 30px;
+    }
+
+    p {
+      color: #fff;
+
+      &:nth-child(1) {
+        font-size: 90px;
+        font-family: global.$ff-en;
+        font-weight: bold;
+        line-height: normal;
+        letter-spacing: global.$letter-spacing-base;
+        line-height: 111px;
+
+        @include global.mq("sp") {
+          font-size: 45px;
+          line-height: normal;
+        }
+      }
+      &:nth-child(2) {
+        font-family: global.$ff-ja;
+        font-size: 26px;
+        padding-bottom: 57px;
+        letter-spacing: global.$letter-spacing-base;
+
+        @include global.mq("sp") {
+          font-size: 20px;
+          padding-bottom: 10px;
+        }
+      }
+      &:nth-child(3) {
+        font-family: global.$ff-ja;
+        font-size: 18px;
+        letter-spacing: global.$letter-spacing-base;
+
+        @include global.mq("sp") {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &-arrow {
+    width: 79px;
+    margin-right: 9px;
+
+    @include global.mq("sp") {
+      width: 55px;
+      margin-right: 0;
+    }
+  }
+}
+
+.p-footer__bottom {
+  margin-top: 11rem;
+
+  @include global.mq("sp") {
+    margin-top: 4rem;
+  }
+
+  .P-footer__bottom-logo {
+    display: flex;
+
+    @include global.mq("sp") {
+      flex-flow: column;
+    }
+
+    p {
+      color: global.$accent-color;
+      font-size: 16px;
+      letter-spacing: global.$letter-spacing-base;
+      margin-left: 1.25rem;
+      padding-top: 2px;
+
+      @include global.mq("sp") {
+        margin-left: 0;
+        padding-top: 5px;
+        font-size: 14px;
+      }
+    }
+
+    img {
+      width: 231px;
+    }
+  }
+  &-nav {
+    margin-top: 4rem;
+    @include global.mq("sp") {
+      margin-top: 1rem;
+    }
+
+    ul {
+      display: flex;
+
+      @include global.mq("sp") {
+        flex-flow: column;
+      }
+    }
+
+    li {
+      font-size: 16px;
+      letter-spacing: global.$letter-spacing-base;
+      padding-bottom: 1rem;
+
+      @include global.mq("pc") {
+        padding-left: 65px;
+        &:first-child {
+          padding-left: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  &-copylight {
+    color: global.$text-color;
+    font-size: 14px;
+    margin-top: 85px;
+    text-align: right;
+    letter-spacing: global.$letter-spacing-base;
+    font-family: global.$ff-yu;
+    padding-right: 2px;
+
+    @include global.mq("sp") {
+      margin-top: 20px;
+    }
+  }
+}

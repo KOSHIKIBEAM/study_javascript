@@ -1,0 +1,51 @@
+@use "../global" as global;
+
+.c-btn {
+  font-size: 18px;
+  color: #fff;
+  background: global.$accent-color;
+  position: relative;
+  display: inline-block;
+  padding: 20px 21px;
+  width: 350px;
+  letter-spacing: global.$letter-spacing-base;
+  transition: 0.4s;
+
+  &:hover {
+    background: #111;
+  }
+}
+.arrow-right {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  line-height: 1;
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  width: 0.6em;
+  height: 0.6em;
+  transform: translate(-25%, -50%) rotate(45deg);
+}
+
+.arrow-right::before,
+.arrow-right::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  border-radius: 0.1em;
+}
+
+.arrow-right::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.1em;
+}
+
+.arrow-right::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.1em;
+}

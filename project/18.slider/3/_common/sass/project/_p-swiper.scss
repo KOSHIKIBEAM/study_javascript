@@ -1,0 +1,107 @@
+@use "../global" as global;
+
+.swiper {
+  width: 100%;
+  position: relative;
+  height: 600px;
+}
+
+.swiper-slide {
+  transform-origin: top center;
+  transition: all 0.7s; /* ゆっくり小さくさせる */
+  width: 280px !important;
+  height: 390px !important;
+
+  img {
+    transition: all 0.7s; /* ゆっくり小さくさせる */
+    width: 280px !important;
+    height: 390px !important;
+  }
+}
+.swiper-slide img {
+  height: auto;
+  width: 100%;
+}
+.swiper-slide-next {
+  transform-origin: top center;
+  z-index: 1; /* 中央のスライドを一番上にする */
+  width: 380px !important;
+  height: 535px !important;
+
+  img {
+    width: 380px !important;
+    height: 535px !important;
+  }
+}
+.swiper-wrapper {
+}
+// .swiper-button-next,
+// .swiper-button-prev {
+//   position: absolute;
+//   transition: 0.3s;
+//   top: 200%;
+
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     transform: translate(-50%, -50%);
+//     width: 64px;
+//     height: 64px;
+//     transition: 0.3s;
+
+//     @include global.mq("sp") {
+//       width: 32px;
+//       height: 32px;
+//     }
+//   }
+// }
+
+// .swiper-button-next {
+//   right: 168px;
+
+//   @include global.mq("sp") {
+//     right: 14px;
+//     top: 23px;
+//   }
+
+//   &::after {
+//     transform: rotate(180deg);
+//   }
+// }
+// .swiper-button-prev {
+//   right: 240px;
+//   left: auto;
+
+//   img {
+//     transform: rotate(180deg);
+//   }
+
+//   @include global.mq("sp") {
+//     top: 39px;
+//     right: 44px;
+//   }
+// }
+
+.swiper .swiper-slide {
+  position: relative;
+
+  &__text {
+    position: absolute;
+    top: 63%;
+    left: 6%;
+  }
+
+  p {
+    color: #fff;
+
+    &:nth-child(1) {
+      font-size: 24px;
+    }
+    &:nth-child(2) {
+      font-size: 20px;
+    }
+    &:nth-child(3) {
+      font-size: 14px;
+    }
+  }
+}

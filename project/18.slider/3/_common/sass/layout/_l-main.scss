@@ -1,0 +1,7 @@
+@use "../global" as global;
+
+.l-main {
+  margin-top: 80px;
+  position: relative;
+  z-index: map-get(global.$layer, "default");
+}

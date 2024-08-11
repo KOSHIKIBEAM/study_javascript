@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>12.accordion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 20240809 よくある質問コンテンツの追加 -->
+    <style>
+        .faq_area {
+            margin-bottom: 60px;
+        }
+
+        .faq_area h2 {
+            margin-bottom: 30px;
+            font-size: 20px;
+            line-height: 36px;
+            color: #111;
+            padding-left: 44px;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .faq_area h2::before {
+            content: "";
+            position: absolute;
+            left: 1.5%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 25px;
+            height: 25px;
+            background: url(https://yq911059.heteml.net/test/hitoba-office/20240809/img/faqicon.png) no-repeat center center / contain;
+        }
+
+        #faq-accordion {
+            width: 75%;
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        #faq-accordion .Qa {
+            padding: 10px 0;
+            border-bottom: 1px solid #868686;
+        }
+
+        .Qa-Box .Qa dt,
+        .Qa-Box .Qa dd {
+            display: flex;
+            align-items: baseline;
+            position: relative;
+        }
+
+        #faq-accordion .Qa_wall dt {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .Qa-Box .Qa dt::before,
+        .Qa-Box .Qa dd::before {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            transform: translate(-50%, 0%);
+            left: 1.5%;
+            font-size: 16px;
+        }
+
+        .Qa-Box .Qa dt::before {
+            content: "Q.";
+            top: 0;
+        }
+
+        .Qa-Box .Qa dd::before {
+            content: "A.";
+            top: 10px;
+        }
+
+        #faq-accordion .Qa_wall dt p,
+        #faq-accordion .Qa_wall dd p {
+            font-size: 13px;
+        }
+
+        #faq-accordion .Qa_wall dt p {
+            padding: 4px 44px 0 32px;
+        }
+
+        #faq-accordion .Qa_wall dd p {
+            padding: 10px 44px 10px 32px;
+        }
+
+        #faq-accordion .Qa_wall dd {
+            height: 0;
+            overflow: hidden;
+            transition: .4s ease;
+        }
+
+        #faq-accordion .Qa_wall dt p::before {
+            content: "";
+            width: 2px;
+            height: 16px;
+            background: #000;
+            position: absolute;
+            right: 18px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: .6s ease;
+        }
+
+        #faq-accordion .Qa_wall dt p::after {
+            content: "";
+            width: 16px;
+            height: 2px;
+            background: #000;
+            position: absolute;
+            right: 11px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: .6s ease;
+        }
+
+        #faq-accordion .Qa_wall dt.is-accordion--open p::before {
+            transform: rotate(90deg);
+        }
+
+        #faq-accordion .Qa_wall dt.is-accordion--open p::after {
+            transform: rotate(-180deg);
+        }
+
+        #faq-accordion .Qa_wall dt.is-accordion--open+.accordion-box {
+            height: auto;
+            opacity: 1;
+        }
+
+        #faq-accordion dl,
+        #faq-accordion dd {
+            margin-left: 0;
+        }
+
+        #faq-accordion p {
+            margin-bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            #faq-accordion {
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .faq_area h2 {
+                padding-left: 0px;
+            }
+
+            .faq_area h2::before {
+                content: none;
+            }
+
+            .Qa-Box .Qa dt::before,
+            .Qa-Box .Qa dd::before {
+                left: 16px;
+            }
+        }
+    </style>
+    <section class="faq_area">
+        <div class="subtitle_top">
+            <h2>FAQ<span></span></h2>
+        </div>
+        <dl class="Qa-Box" id="faq-accordion">
+            <div class="Qa Qa_wall">
+                <dt class="js-faq">
+                    <p>プランニング費用はどのくらいかかりますか？</p>
+                </dt>
+                <dd>
+                    <p>実施の規模や期間、ご予算に合わせた形でのご提案をさせて頂きます。総工費のパーセンテージや、工事費用、什器費用に含むことは御座いませんので、実施前に明確なカタチでご呈示させて頂きます。
+                    </p>
+                </dd>
+            </div>
+            <div class="Qa Qa_wall">
+                <dt class="js-faq">
+                    <p>ハイブリッドワークやフリーアドレス、リフレッシュスペースの導入など、働き方に合わせた提案を受けられますか？</p>
+                </dt>
+                <dd>
+                    <p>はい。お客様の抱えているお悩みや課題に合わせて、経験豊富なプランナーが、最適なオフィスデザインをご提案いたします。まずは、ご希望やご要望をお聞かせください。</p>
+                </dd>
+            </div>
+            <div class="Qa Qa_wall">
+                <dt class="js-faq">
+                    <p>見積依頼の段階で費用は発生しますか？</p>
+                </dt>
+                <dd>
+                    <p>基本的に、ご契約までに費用が発生することはありません。費用が発生する場合は、必ず事前にお伝えいたします。<br>安心してご相談ください。</p>
+                </dd>
+            </div>
+            <div class="Qa Qa_wall " style="margin-bottom: 50px;">
+                <dt class="js-faq">
+                    <p>設計者を指名できるのですか？</p>
+                </dt>
+                <dd>
+                    <p>何を基準に選任するか難しいかと思いますので、プランナーがお話しをお聞きしたうえで、<br class="br-pc">過去の経験や実績から適任のデザイナーのご案内をしてご紹介させて頂きます。
+                    </p>
+                </dd>
+            </div>
+        </dl>
+        <script>
+            let jsAccordion = document.querySelectorAll('.js-faq');
+            jsAccordion.forEach(function (element) {
+                element.addEventListener('click', function (e) {
+                    let eleHeight = element.nextElementSibling;
+                    if (element.classList.contains('is-accordion--open')) {
+                        eleHeight.style.height = '0';
+                    } else {
+                        eleHeight.style.height = eleHeight.scrollHeight + 'px';
+                    }
+                    element.classList.toggle('is-accordion--open');
+                });
+            });
+        </script>
+    </section>
+    <!--// 20240809 よくある質問コンテンツの追加 -->
+    <script src="./main.js"></script>
+</body>
+
+</html>

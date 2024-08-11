@@ -1,0 +1,181 @@
+@use "../global" as global;
+
+.c-contact__btn {
+  color: global.$accent-color;
+  text-align: center;
+
+  &:nth-child(1) {
+    background: global.$main-color;
+    padding: 0px 16px 18px 40px;
+  }
+  &:nth-child(2) {
+    margin-left: 80px;
+    position: relative;
+    font-size: 20px;
+
+    @include global.mq("sp") {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    @include global.mq("sp") {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 40px;
+      transform: translate(-50%, -50%);
+      background: url(/img/fv/Icon\ awesome-caret-right.svg) no-repeat center
+        center/contain;
+      width: 12px;
+      height: 10px;
+    }
+
+    a {
+      background: #000;
+      padding: 15px 70px 15px 50px;
+      transition: 0.3s;
+
+      &:hover {
+        background: #155e62;
+      }
+    }
+  }
+
+  &-wrap {
+    @include global.mq("pc") {
+      display: flex;
+      align-items: center;
+      padding-top: 86px;
+    }
+    @include global.mq("sp") {
+      display: flex;
+      align-items: center;
+      padding-top: 86px;
+      justify-content: center;
+      flex-flow: column;
+    }
+
+    @include global.mq("sp") {
+      display: inline-block;
+    }
+
+    &:nth-child(2) {
+      margin-left: 80px;
+    }
+  }
+
+  &-tel {
+    font-size: 24px;
+    color: #eff1f4;
+    position: relative;
+    font-family: global.$ff-en;
+    letter-spacing: 0.1em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -14px;
+      transform: translate(-50%, -50%);
+      background: url(/img/fv/Icon\ awesome-phone-alt.svg) no-repeat center
+        center/contain;
+      width: 20px;
+      height: 16px;
+    }
+  }
+  &-time {
+    display: inline-block;
+    position: absolute;
+    top: 33px;
+    letter-spacing: 0;
+    left: 16px;
+    font-size: 16px;
+    color: #eff1f4;
+  }
+}
+
+.p-fv {
+  .c-contact__btn {
+    &:nth-child(1) {
+      @include global.mq("sp") {
+        padding: 4px 9px 18px 24px;
+      }
+    }
+
+    &:nth-child(2) {
+      @include global.mq("sp") {
+        font-size: 13px;
+      }
+
+      &::before {
+        @include global.mq("sp") {
+          right: 20px;
+        }
+      }
+
+      a {
+        @include global.mq("sp") {
+          padding: 13px 52px 12px 30px;
+        }
+      }
+    }
+
+    &-wrap {
+      @include global.mq("sp") {
+        padding-top: 50px;
+        width: 160px;
+      }
+    }
+
+    &-tel {
+      @include global.mq("sp") {
+        font-size: 13px;
+
+        &::before {
+          width: 12px;
+          height: 12px;
+          left: -1px;
+        }
+      }
+    }
+    &-time {
+      @include global.mq("sp") {
+        font-size: 10px;
+        top: 19px;
+        left: 16px;
+      }
+    }
+  }
+}
+
+.p-footer__top {
+  .c-contact__btn {
+    &:nth-child(1) {
+      padding: 0px 16px 18px 40px;
+    }
+
+    &:nth-child(2) {
+      @include global.mq("sp") {
+        font-size: 18px;
+      }
+    }
+
+    &-wrap {
+      padding-top: 14px;
+      margin: 20px auto 0;
+      justify-content: center;
+
+      &:nth-child(2) {
+        margin-left: 0px;
+      }
+    }
+    &-time {
+      top: 31px;
+    }
+  }
+}

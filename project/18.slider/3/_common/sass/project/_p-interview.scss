@@ -1,0 +1,21 @@
+@use "../global" as global;
+
+.p-interview {
+  position: relative;
+  margin-top: 79px;
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    margin-top: 160px;
+  }
+
+  &__swiper {
+    position: relative;
+    overflow: hidden;
+
+    @include global.mq("pc") {
+      margin-top: 40px;
+    }
+  }
+}

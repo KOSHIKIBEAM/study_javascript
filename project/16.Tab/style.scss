@@ -214,3 +214,8 @@ header {
 .tab__panel-box.is-show {
   display: block;
 }
+@include global.mq("sp") {
+  .tab__panel-box.is-show {
+    display: block;
+  }
+}

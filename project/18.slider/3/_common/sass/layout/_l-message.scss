@@ -1,0 +1,30 @@
+@use "../global" as global;
+
+.l-message {
+  background: #fff;
+  max-width: 1250px;
+  margin: 75px 0 0 auto;
+  padding: 50px 0 85px 104px;
+  width: 78.125%;
+
+  &__text {
+    position: relative;
+    margin: 78px 192px 40px 0;
+    line-height: calc(28 / 16);
+
+    p {
+      letter-spacing: 0.055em;
+      font-weight: normal;
+    }
+
+    &::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: global.$accent-color;
+      top: -64%;
+      left: 4px;
+      position: absolute;
+    }
+  }
+}
