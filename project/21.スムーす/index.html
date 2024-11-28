@@ -1,0 +1,106 @@
+<!--start 20240729 追加 スムーススクロールボタン追加-->
+<style>
+    #page-top {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        z-index: 100;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #115582;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    /* 矢印のスタイル */
+    #page-top::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        margin-bottom: -6px;
+        border-top: solid 3px #fff;
+        border-right: solid 3px #fff;
+        transform: rotate(-45deg);
+    }
+</style>
+<div id="page-top"><a href="#"></a></div>
+<script>
+    const smoothScroll = (gapPC = 0, gapSP = 0) => {
+        const mediaSp = window.matchMedia('(max-width: 560px)');
+        let gap;
+        if (mediaSp.matches) {
+            gap = gapSP;
+        } else {
+            gap = gapPC;
+        }
+
+        const positionSet = (elem, _gap) => {
+            const targetElement = document.getElementById(elem.replace('#', ''));
+            if (!targetElement) {
+                return undefined;
+            }
+            const rect = targetElement.getBoundingClientRect().top;
+            const offset = window.pageYOffset;
+            const target = rect + offset - _gap;
+            return target;
+        };
+        // URLのハッシュ部分（#以降）を取得
+        const urlHash = window.location.hash;
+        // URLにハッシュ部分があれば…
+        if (urlHash) {
+            setTimeout(() => {
+                // スクロール先の要素が見つからない場合は…
+                if (positionSet(urlHash, gap) === undefined) {
+                    // アラートを出す
+                    alert('移動先が見当たりません');
+                    // スクロール先の要素があれば…
+                } else {
+                    window.scrollTo({
+                        top: positionSet(urlHash, gap), // ハッシュ値と固定headerの余白分から移動距離を取得
+                        // 別ページのときはスムーススクロールせずに移動
+                    });
+                }
+            }, 0);
+            // URLにハッシュ部分が無ければ…
+        } else {
+            // a要素でリンク先に#が設定されている要素を全て取得
+            const smoothScrollTrigger = document.querySelectorAll('a[href^="#"]');
+            // もし要素がなければ処理終了
+            if (!smoothScrollTrigger.length) return;
+            // 取得した要素の数だけループ
+            for (let i = 0; i < smoothScrollTrigger.length; i = i + 1 || 0) {
+                // 要素１つ１つにクリックイベントを設定
+                smoothScrollTrigger[i].addEventListener('click', (e) => {
+                    // クリックイベントの初期動作を停止
+                    e.preventDefault();
+                    // 要素からhrefに設定されている値を取得
+                    const href = smoothScrollTrigger[i].getAttribute('href');
+                    let targetPosition;
+                    // hrefの値が#のみなら…
+                    if (href === '#') {
+                        // トップに戻すため0を設定
+                        targetPosition = 0;
+                        // スクロール先が見つからない場合は…
+                    } else if (positionSet(href, gap) === undefined) {
+                        // アラートを出す
+                        alert('移動先が見当たりません');
+                        /// スクロール先の要素があれば…
+                    } else {
+                        targetPosition = positionSet(href, gap); // ハッシュ値と固定headerの余白分から移動距離を取得
+                    }
+
+                    window.scrollTo({
+                        top: targetPosition, // 移動距離を設定
+                        behavior: 'smooth', // ページ内ではスムーススクロールを設定
+                    });
+                });
+            }
+        }
+    };
+
+    smoothScroll();
+</script>
+<!--end 20240729 追加 スムーススクロールボタン追加-->
